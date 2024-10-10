@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS "users";
+DROP TABLE IF EXISTS "Users";
 
-DROP TABLE IF EXISTS "tasks";
+DROP TABLE IF EXISTS "Tasks";
 
-DROP TABLE IF EXISTS "categories";
+DROP TABLE IF EXISTS "Categories";
 
-DROP TABLE IF EXISTS "task_categories";
+DROP TABLE IF EXISTS "Task_Categories";

@@ -13,7 +13,7 @@ func NewHandler(services *service.Service) *Handler {
 	return &Handler{services: services}
 }
 
-func (h *Handler) InitRoutes() {
+func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 
 	auth := router.Group("/auth")
@@ -22,4 +22,6 @@ func (h *Handler) InitRoutes() {
 		auth.POST("/sign-in", h.signIn)
 		auth.GET("/refresh-token", h.refreshToken)
 	}
+
+	return router
 }

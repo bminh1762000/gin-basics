@@ -1,14 +1,8 @@
 build:
-	docker-compose build jwt-auth-go
+	docker-compose build todo-app
 
 run:
-	docker-compose up jwt-auth-go
-
-stop:
-	docker-compose stop jwt-auth-go
-
-down:
-	docker-compose down
+	docker-compose up todo-app
 
 test:
 	go test -v ./...

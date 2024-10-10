@@ -27,6 +27,10 @@ type refreshTokenClaims struct {
 	Token string `json:"token"`
 }
 
+func NewJwtService() *JwtService {
+	return &JwtService{}
+}
+
 func (j *JwtService) GenerateToken(user models.User) (models.Token, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, &tokenClaims{
 		jwt.RegisteredClaims{
