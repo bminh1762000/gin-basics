@@ -6,6 +6,18 @@ import (
 	"net/http"
 )
 
+// @Summary SignUp
+// @Tags auth
+// @Description create account
+// @ID create-account
+// @Accept  json
+// @Produce  json
+// @Param input body models.User true "account info"
+// @Success 200 {integer} integer 1
+// @Failure 400,404 {object} errorResponse
+// @Failure 500 {object} errorResponse
+// @Failure default {object} errorResponse
+// @Router /auth/sign-up [post]
 func (h *Handler) signUp(c *gin.Context) {
 	var user models.User
 	if err := c.BindJSON(&user); err != nil {
@@ -25,6 +37,18 @@ func (h *Handler) signUp(c *gin.Context) {
 	})
 }
 
+// @Summary SignIn
+// @Tags auth
+// @Description login
+// @ID login
+// @Accept  json
+// @Produce  json
+// @Param input body models.User true "credentials"
+// @Success 200 {string} string "token"
+// @Failure 400,404 {object} errorResponse
+// @Failure 500 {object} errorResponse
+// @Failure default {object} errorResponse
+// @Router /auth/sign-in [post]
 func (h *Handler) signIn(c *gin.Context) {
 	var user models.User
 	if err := c.BindJSON(&user); err != nil {
@@ -51,6 +75,18 @@ func (h *Handler) signIn(c *gin.Context) {
 	})
 }
 
+// @Summary RefreshToken
+// @Tags auth
+// @Description refresh token
+// @ID refresh-token
+// @Accept  json
+// @Produce  json
+// @Param input body models.Token true "refresh token"
+// @Success 200 {string} string "token"
+// @Failure 400,404 {object} errorResponse
+// @Failure 500 {object} errorResponse
+// @Failure default {object} errorResponse
+// @Router /auth/refresh-token [get]
 func (h *Handler) refreshToken(c *gin.Context) {
 	var token models.Token
 	if err := c.BindJSON(&token); err != nil {
